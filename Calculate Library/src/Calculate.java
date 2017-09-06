@@ -59,7 +59,44 @@ public class Calculate {
 	
 	//"foils", converts a binomial into a quadratic
 	public static String foil(int opperandA, int opperandB, int opperandC, int opperandD, String opperandE) {
+		int quadA = opperandA * opperandC;
+		int quadB = (opperandA * opperandD) + (opperandB*opperandC);
+		int quadC = (opperandB * opperandD);
+		String operatorA;
+		String operatorB;
 		
-		return ("filler");
+		//this is so I don't have a "plus negative" (like "+ -7")
+		if(quadB < 0) {
+			//is there a more efficient means of doing this?
+			operatorA = " - ";
+			quadB = pos(quadB);
+		}else {
+			operatorA = " + ";
+		}
+		if(quadC < 0) {
+			operatorB = " - ";
+			quadC = pos(quadC);
+		}else {
+			operatorB = " + ";
+		}
+		
+		return (quadA + opperandE + "^2" + operatorA +quadB + opperandE + operatorB + quadC);
 	}
+	
+	//used to find absolute value
+	//will (maybe) later research (more efficient) absolute value methods
+	public static int absValue(int opperand) {
+		int absolute;
+		if(opperand < 0) {
+			absolute - (2*absolute);
+		}
+		return (absolute);
+	}
+	
+	//calculates if 2 integers are evenly divisible (A % B = 0)
+	public static boolean isDivisibleBy(int opperandA, int opperandB) {
+		return ((opperandA % opperandB) == 0);
+	}
+	
+
 }
