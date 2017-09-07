@@ -20,10 +20,19 @@ public class DoMath {
 		*/
 		
 		//Part 2
-		System.out.println(Calculate.isDivisibleBy(5, 7));
+		/*System.out.println(Calculate.isDivisibleBy(5, 7));
 		System.out.println(Calculate.isDivisibleBy(4, 2));
 		System.out.println(Calculate.absValue(-2.5));
 		System.out.println(Calculate.absValue(4.5));
+		System.out.println(Calculate.max(2.6, 8.7));
+		System.out.println(Calculate.max(5, 5));
+		System.out.println(Calculate.max(2.6, 8.2, 102.56));
+		System.out.println(Calculate.max(2.6, 8.2, 8.2));
+		System.out.println(Calculate.max(8.2, 8.2, 4));
+		System.out.println(Calculate.max(2.6, 5, 2));
+		System.out.println(Calculate.min(8, 2));
+		System.out.println(Calculate.min(3, 7));*/
+		System.out.println(Calculate.round2(12.7589));
 	}
 
 }

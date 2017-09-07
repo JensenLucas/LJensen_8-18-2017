@@ -69,13 +69,13 @@ public class Calculate {
 		if(quadB < 0) {
 			//is there a more efficient means of doing this?
 			operatorA = " - ";
-			quadB = pos(quadB);
+			quadB = absValue(quadB);
 		}else {
 			operatorA = " + ";
 		}
 		if(quadC < 0) {
 			operatorB = " - ";
-			quadC = pos(quadC);
+			quadC = absValue(quadC);
 		}else {
 			operatorB = " + ";
 		}
@@ -85,12 +85,19 @@ public class Calculate {
 	
 	//used to find absolute value
 	//will (maybe) later research (more efficient) absolute value methods
-	public static int absValue(int opperand) {
-		int absolute;
+	public static double absValue(double opperand) {
 		if(opperand < 0) {
-			absolute - (2*absolute);
+			opperand = opperand - (2*opperand);
 		}
-		return (absolute);
+		return (opperand);
+	}
+	
+	//alternate version of absValue for integers 
+	public static int absValue(int opperand) {
+		if(opperand < 0) {
+			opperand = opperand - (2*opperand);
+		}
+		return (opperand);
 	}
 	
 	//calculates if 2 integers are evenly divisible (A % B = 0)
@@ -98,5 +105,50 @@ public class Calculate {
 		return ((opperandA % opperandB) == 0);
 	}
 	
-
+	//finds larger of two given doubles
+	public static double max(double opperandA, double opperandB) {
+		if (opperandA > opperandB) {
+			return(opperandA);
+		}else {
+			return(opperandB);
+		}
+	}
+	
+	//version of max for 3 doubles
+	public static double max(double opperandA, double opperandB, double opperandC) {
+		if (opperandA >= opperandB && opperandA >= opperandC) {
+			return (opperandA);
+		}else if(opperandB >= opperandC){
+			return (opperandB);
+		}else {
+			return (opperandC);
+		}
+	}
+	
+	//finds smaller of two given integers
+	public static int min(int opperandA, int opperandB){
+		if (opperandA <= opperandB) {
+			return(opperandA);
+		}else {
+			return(opperandB);
+		}
+	}
+	
+	//version of min for doubles
+	public static double min(double opperandA, double opperandB){
+		if (opperandA <= opperandB) {
+			return(opperandA);
+		}else {
+			return(opperandB);
+		}
+	}
+	
+	//rounds a decimal to two decimal places (1.00, 1.23, 5.82, etc)
+	public static double round2(double opperand) {
+		double opperandZ = opperand * 100;
+		opperandZ -= (opperandZ % 1);
+		opperandZ /= 100;
+		if(opperand)
+		return (opperand);
+	}
 }
