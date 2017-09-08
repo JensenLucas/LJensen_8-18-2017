@@ -16,8 +16,8 @@ public class DoMath {
 		System.out.println(Calculate.discriminant(5, 7, 8));
 		System.out.println(Calculate.toImproperFrac(3, 1, 2));
 		System.out.println(Calculate.toMixedNum(7, 2));
-		System.out.println(Calculate.foil(2, 3, 6, -7, "n"));
-		*/
+		System.out.println(Calculate.foil(2, 3, 6, -7, "n"));*/
+		
 		
 		//Part 2
 		/*System.out.println(Calculate.isDivisibleBy(5, 7));
@@ -31,8 +31,8 @@ public class DoMath {
 		System.out.println(Calculate.max(8.2, 8.2, 4));
 		System.out.println(Calculate.max(2.6, 5, 2));
 		System.out.println(Calculate.min(8, 2));
-		System.out.println(Calculate.min(3, 7));*/
-		System.out.println(Calculate.round2(12.7589));
+		System.out.println(Calculate.min(3, 7));
+		System.out.println(Calculate.round2(12.7589));*/
 	}
 
 }
