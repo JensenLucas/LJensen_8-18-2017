@@ -148,7 +148,15 @@ public class Calculate {
 		double opperandZ = opperand * 100;
 		opperandZ -= (opperandZ % 1);
 		opperandZ /= 100;
-		if(opperand)
-		return (opperand);
+		
+		double opperandY = opperand * 1000;
+		opperandY -= (opperandY % 1);
+		opperandY /= 1000;
+		
+		if(opperandY - opperandZ >= .005 ) {
+			opperandZ += .01;
+		}
+		
+		return (opperandZ);
 	}
 }
