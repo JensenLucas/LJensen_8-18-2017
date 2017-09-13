@@ -205,7 +205,7 @@ public class Calculate {
 		return(prime);
 	}
 	
-	//Finds greatest common factor
+	//Finds greatest common factor of two integers
 	public static int gcf(int opperandA, int opperandB) {
 		int opperandZ = 1;
 		for(int i = 1; opperandA-1 >= i+1 && opperandB-1 >= i+1; i++) {
@@ -217,5 +217,19 @@ public class Calculate {
 		return(opperandZ);
 	}
 	
-	
+	//approximates the square root of a given double
+	public static double sqrt(double opperand){
+		//maybe there's a better way of doing this, like a rng or something, but I don't have
+		//that hypothetical better way so I just have my first test exponent be 1/4 of the
+		//input value
+		double testExpo = opperand / 4;
+		//a for loop would work here, but I wanted to spread it out some so it would be
+		//easier to read
+		double altExpo = (((opperand / testExpo) + testExpo) / 2);
+		while( testExpo - altExpo > .005 || altExpo - testExpo > .005) {
+			testExpo = altExpo;
+			altExpo = (((opperand / testExpo) + testExpo) / 2);
+		}
+		return(round2(altExpo));
+	}
 }
