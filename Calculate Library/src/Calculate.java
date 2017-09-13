@@ -159,4 +159,63 @@ public class Calculate {
 		
 		return (opperandZ);
 	}
+	
+	//returns opperandA^opperandB
+	public static double exponent (double opperandA, int opperandB) {
+		double opperandZ = opperandA;
+		if(opperandB > 0) {
+			for(int i=1; i < opperandB; i++) {
+				opperandZ *= opperandA;
+			}
+		}else if(opperandB == 0) {
+			opperandZ = 1;
+		}else if(opperandB < 0){
+			for(int i=-1; i < absValue(opperandB); i++) {
+				opperandZ /= opperandA;
+			}
+		}
+		return opperandZ;
+	}
+	
+	//returns factorial
+	//ex: 4! = 4*3*2*1 = 24
+	public static int factorial (int opperand) {
+		int result = opperand;
+		if(opperand >= 0) {
+			for(int i=1; i<=(opperand-1); i++) {
+				result *= i;
+			}
+		}else if(opperand <= 0) {
+			//add later
+		}
+		return result;
+	}
+	
+	//checks if prime, returns boolean
+	public static boolean isPrime(int opperand) {
+		boolean prime = false;
+		//some of the code is a little weird here, but the point is it works and re-writing
+		//it would be too much effort to be worth it 
+		for(int i=1; i<(opperand-1) ;i++) {
+			boolean check = isDivisibleBy(opperand, (i+1));
+			if(check == true) {
+				prime = true;
+			}
+		}
+		return(prime);
+	}
+	
+	//Finds greatest common factor
+	public static int gcf(int opperandA, int opperandB) {
+		int opperandZ = 1;
+		for(int i = 1; opperandA-1 >= i+1 && opperandB-1 >= i+1; i++) {
+			if((isDivisibleBy(opperandA, i)) && (isDivisibleBy(opperandB, i))) {
+				opperandZ = i;
+			}
+		}
+		
+		return(opperandZ);
+	}
+	
+	
 }

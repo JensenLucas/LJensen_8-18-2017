@@ -33,6 +33,19 @@ public class DoMath {
 		System.out.println(Calculate.min(8, 2));
 		System.out.println(Calculate.min(3, 7));
 		System.out.println(Calculate.round2(12.7589));*/
+		
+		
+		//part 3
+		/*System.out.println(Calculate.exponent(2, 2));
+		System.out.println(Calculate.exponent(2, 3));
+		System.out.println(Calculate.exponent(2, 1));
+		System.out.println(Calculate.exponent(2, 0));
+		System.out.println(Calculate.exponent(2, -1));
+		System.out.println(Calculate.exponent(2, -2));
+		System.out.println(Calculate.factorial(4));
+		System.out.println(Calculate.isPrime(7));
+		System.out.println(Calculate.isPrime(4));*/
+		System.out.println(Calculate.gcf(24, 56));
 	}
 
 }
