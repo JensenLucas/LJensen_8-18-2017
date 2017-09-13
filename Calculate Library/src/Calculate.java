@@ -106,7 +106,7 @@ public class Calculate {
 	}
 	
 	//finds larger of two given doubles
-	public static double max(double opperandA, double opperandB) {
+	public static double a(double opperandA, double opperandB) {
 		if (opperandA > opperandB) {
 			return(opperandA);
 		}else {
@@ -179,14 +179,15 @@ public class Calculate {
 	
 	//returns factorial
 	//ex: 4! = 4*3*2*1 = 24
+	//does not work with negative integers
 	public static int factorial (int opperand) {
 		int result = opperand;
 		if(opperand >= 0) {
 			for(int i=1; i<=(opperand-1); i++) {
 				result *= i;
 			}
-		}else if(opperand <= 0) {
-			//add later
+		}else{
+			result = (Integer)null;
 		}
 		return result;
 	}
@@ -219,6 +220,10 @@ public class Calculate {
 	
 	//approximates the square root of a given double
 	public static double sqrt(double opperand){
+		if(opperand <= 0) {
+			return (Double)null;
+		}
+		
 		//maybe there's a better way of doing this, like a rng or something, but I don't have
 		//that hypothetical better way so I just have my first test exponent be 1/4 of the
 		//input value
