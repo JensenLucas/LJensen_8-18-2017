@@ -209,7 +209,7 @@ public class Calculate {
 	//Finds greatest common factor of two integers
 	public static int gcf(int opperandA, int opperandB) {
 		int opperandZ = 1;
-		for(int i = 1; opperandA-1 >= i+1 && opperandB-1 >= i+1; i++) {
+		for(int i = 1; opperandA >= i && opperandB >= i; i++) {
 			if((isDivisibleBy(opperandA, i)) && (isDivisibleBy(opperandB, i))) {
 				opperandZ = i;
 			}

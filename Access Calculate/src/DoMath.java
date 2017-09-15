@@ -35,7 +35,7 @@ public class DoMath {
 		System.out.println(Calculate.max(2.6, 5, 2));
 		System.out.println(Calculate.min(8, 2));
 		System.out.println(Calculate.min(3, 7));*/
-		System.out.println(Calculate.round2(12.7589));
+		//System.out.println(Calculate.round2(12.7589));
 		
 		
 		//part 3
@@ -50,13 +50,17 @@ public class DoMath {
 		System.out.println(Calculate.factorial(4));
 		System.out.println(Calculate.factorial(-4));
 		System.out.println(Calculate.isPrime(7));
-		System.out.println(Calculate.isPrime(4));
+		System.out.println(Calculate.isPrime(4));*/
 		System.out.println(Calculate.gcf(24, 56));
-		System.out.println(Calculate.sqrt(16));
+		System.out.println(Calculate.gcf(56, 56));
+		System.out.println(Calculate.gcf(24, -56));
+		System.out.println(Calculate.gcf(-24, -56));
+		System.out.println(Calculate.gcf(0, 56));
+		System.out.println(Calculate.gcf(1, 100));
+		/*System.out.println(Calculate.sqrt(16));
 		System.out.println(Calculate.sqrt(9));
 		System.out.println(Calculate.sqrt(20.7));
 		System.out.println(Calculate.sqrt(2));
 		System.out.println(Calculate.sqrt(-2));*/
 	}
-
 }
