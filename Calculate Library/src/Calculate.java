@@ -153,10 +153,11 @@ public class Calculate {
 		opperandY -= (opperandY % 1);
 		opperandY /= 1000;
 		
-		if(opperandY - opperandZ >= .005 ) {
+		if(opperandY - opperandZ >= .005 && opperandZ > 0) {
 			opperandZ += .01;
+		}else if(opperandY - opperandZ <= -.005 && opperandZ < 0) {
+			opperandZ -= .01;
 		}
-		
 		return (opperandZ);
 	}
 	
@@ -209,12 +210,28 @@ public class Calculate {
 	//Finds greatest common factor of two integers
 	public static int gcf(int opperandA, int opperandB) {
 		int opperandZ = 1;
-		for(int i = 1; opperandA >= i && opperandB >= i; i++) {
-			if((isDivisibleBy(opperandA, i)) && (isDivisibleBy(opperandB, i))) {
-				opperandZ = i;
+		if(opperandA > 0 && opperandB > 0) {
+			for(int i = 1; opperandA >= i && opperandB >= i; i++) {
+				if((isDivisibleBy(opperandA, i)) && (isDivisibleBy(opperandB, i))) {
+					opperandZ = i;
+				}
 			}
+		}else if((opperandA < 0 || opperandB < 0)) {
+			opperandA = absValue(opperandA);
+			opperandB = absValue(opperandB);
+			for(int i = 1; opperandA >= i && opperandB >= i; i++) {
+				if((isDivisibleBy(opperandA, i)) && (isDivisibleBy(opperandB, i))) {
+					opperandZ = i;
+				}
+			}
+		}else if(opperandA == 0 && opperandB == 0) {
+			opperandZ = 0;
+		}else if(opperandA == 0 && opperandB != 0) {
+			opperandZ = opperandB;
+		}else if(opperandA != 0 && opperandB ==0) {
+			opperandZ = opperandA;
 		}
-		
+			
 		return(opperandZ);
 	}
 	
