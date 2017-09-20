@@ -48,14 +48,17 @@ public class DoMath {
 		System.out.println(Calculate.exponent(2, 3));
 		System.out.println(Calculate.exponent(2, 1));
 		System.out.println(Calculate.exponent(2, 0));
-		System.out.println(Calculate.exponent(2, -1));
+		System.out.println(Calculate.exponent(3, -1));
 		System.out.println(Calculate.exponent(2, -2));
 		System.out.println(Calculate.exponent(-2, 2));
 		System.out.println(Calculate.exponent(-3, 3));
 		System.out.println(Calculate.factorial(4));
 		System.out.println(Calculate.factorial(-4));
 		System.out.println(Calculate.isPrime(7));
-		System.out.println(Calculate.isPrime(4));*/
+		System.out.println(Calculate.isPrime(-7));
+		System.out.println(Calculate.isPrime(-4));
+		System.out.println(Calculate.isPrime(23));
+		System.out.println(Calculate.isPrime(4));
 		System.out.println(Calculate.gcf(24, 56)); //8
 		System.out.println(Calculate.gcf(56, 56)); //56
 		System.out.println(Calculate.gcf(24, 48)); //24
@@ -64,7 +67,7 @@ public class DoMath {
 		System.out.println(Calculate.gcf(0, 56)); //56
 		System.out.println(Calculate.gcf(1, 100)); //1
 		System.out.println(Calculate.gcf(0, 0)); //0
-		/*System.out.println(Calculate.sqrt(16));
+		System.out.println(Calculate.sqrt(16));
 		System.out.println(Calculate.sqrt(9));
 		System.out.println(Calculate.sqrt(20.7));
 		System.out.println(Calculate.sqrt(2));

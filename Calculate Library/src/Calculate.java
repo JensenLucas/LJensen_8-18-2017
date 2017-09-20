@@ -188,23 +188,25 @@ public class Calculate {
 				result *= i;
 			}
 		}else{
-			result = (Integer)null;
+			throw new IllegalArgumentException("Error: invalid (negative) input");
 		}
 		return result;
 	}
 	
 	//checks if prime, returns boolean
 	public static boolean isPrime(int opperand) {
-		boolean prime = false;
+		if(opperand <= 0) {
+			return(false);
+		}
 		//some of the code is a little weird here, but the point is it works and re-writing
 		//it would be too much effort to be worth it 
 		for(int i=1; i<(opperand-1) ;i++) {
 			boolean check = isDivisibleBy(opperand, (i+1));
 			if(check == true) {
-				prime = true;
+				return(false);
 			}
 		}
-		return(prime);
+		return(true);
 	}
 	
 	//Finds greatest common factor of two integers
@@ -237,8 +239,8 @@ public class Calculate {
 	
 	//approximates the square root of a given double
 	public static double sqrt(double opperand){
-		if(opperand <= 0) {
-			return (Double)null;
+		if(opperand < 0) {
+			throw new IllegalArgumentException("Negative input is invalid");
 		}
 		
 		//maybe there's a better way of doing this, like a rng or something, but I don't have
