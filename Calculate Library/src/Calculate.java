@@ -256,4 +256,14 @@ public class Calculate {
 		}
 		return(round2(altExpo));
 	}
+	
+	//takes coefficients of a quadratic equation (standard form) and returns the real roots
+	//accepts 3 integers, returns a String
+	public static String quadForm(int opperandA, int opperandB, int opperandC) {
+		double solutionA = (-opperandB + sqrt(exponent(opperandB, 2)-(4 * opperandA * opperandC))) / (2* opperandA);
+		double solutionB = (-opperandB - sqrt(exponent(opperandB, 2)-(4 * opperandA * opperandC))) / (2* opperandA);
+		solutionA = round2(solutionA);
+		solutionB = round2(solutionB);
+		
+	}
 }
