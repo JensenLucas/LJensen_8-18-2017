@@ -260,10 +260,18 @@ public class Calculate {
 	//takes coefficients of a quadratic equation (standard form) and returns the real roots
 	//accepts 3 integers, returns a String
 	public static String quadForm(int opperandA, int opperandB, int opperandC) {
-		double solutionA = (-opperandB + sqrt(exponent(opperandB, 2)-(4 * opperandA * opperandC))) / (2* opperandA);
-		double solutionB = (-opperandB - sqrt(exponent(opperandB, 2)-(4 * opperandA * opperandC))) / (2* opperandA);
-		solutionA = round2(solutionA);
-		solutionB = round2(solutionB);
-		
+		double opperandZ = (-opperandB + sqrt(exponent(opperandB, 2)-(4 * opperandA * opperandC))) / (2* opperandA);
+		double opperandY = (-opperandB - sqrt(exponent(opperandB, 2)-(4 * opperandA * opperandC))) / (2* opperandA);
+		opperandZ = round2(opperandZ);
+		opperandY = round2(opperandY);
+		String solutionA = opperandZ + "";
+		String solutionB = opperandY + "";
+		if(opperandZ == opperandY) {
+			return(solutionA);
+		}else if(min(opperandY, opperandZ) == opperandY){
+			return(solutionB + " and " + solutionA);
+		}else {
+			return(solutionA + " and " + solutionB);
+		}
 	}
 }
