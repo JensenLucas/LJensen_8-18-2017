@@ -74,7 +74,7 @@ public class DoMath {
 		System.out.println(Calculate.sqrt(-2));*/
 		
 		//part 4
-		System.out.println(Calculate.quadForm(5, 4, -12));
-		System.out.println(Calculate.quadForm(-2, 7, 22));
+		//System.out.println(Calculate.quadForm(5, 4, -12));
+		//System.out.println(Calculate.quadForm(-2, 7, 22));
 	}
 }
