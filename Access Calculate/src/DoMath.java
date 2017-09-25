@@ -76,6 +76,5 @@ public class DoMath {
 		//part 4
 		System.out.println(Calculate.quadForm(5, 4, -12));
 		System.out.println(Calculate.quadForm(-2, 7, 22));
-		System.out.println(Calculate.quadForm(1, 0, 0));
 	}
 }
