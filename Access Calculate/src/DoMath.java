@@ -52,6 +52,7 @@ public class DoMath {
 		System.out.println(Calculate.exponent(2, -2));
 		System.out.println(Calculate.exponent(-2, 2));
 		System.out.println(Calculate.exponent(-3, 3));
+		System.out.println(Calculate.exponent(0, 3));
 		System.out.println(Calculate.factorial(4));
 		System.out.println(Calculate.factorial(-4));
 		System.out.println(Calculate.isPrime(7));
@@ -72,9 +73,13 @@ public class DoMath {
 		System.out.println(Calculate.sqrt(20.7));
 		System.out.println(Calculate.sqrt(2));
 		System.out.println(Calculate.sqrt(-2));*/
-		
+	
 		//part 4
-		//System.out.println(Calculate.quadForm(5, 4, -12));
-		//System.out.println(Calculate.quadForm(-2, 7, 22));
-	}
+		System.out.println(Calculate.quadForm(5, 4, -12));
+		System.out.println(Calculate.quadForm(-2, 7, 22));
+		System.out.println(Calculate.quadForm(1, 1, 0));
+		System.out.println(Calculate.quadForm(1, 0, 2));
+		System.out.println(Calculate.quadForm(1, 0, 0));
+		System.out.println(Calculate.quadForm(-2, 0, 53));
+		}
 }

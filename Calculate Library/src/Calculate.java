@@ -1,7 +1,7 @@
 /* Lucas Jensen
- * 9-6-2017
+ * 9-27-2017
  * Math library
- * -contains a series of methods to do basic math functions
+ * -Calculate contains a series of methods to do basic math functions
  */
 public class Calculate {
 	
@@ -243,12 +243,10 @@ public class Calculate {
 			throw new IllegalArgumentException("Negative input is invalid");
 		}
 		
-		//maybe there's a better way of doing this, like a rng or something, but I don't have
-		//that hypothetical better way so I just have my first test exponent be 1/4 of the
-		//input value
+		//I don't know the best place to start, so I just picked something that's between
+		//the opperand and 0
 		double testExpo = opperand / 4;
-		//a for loop would work here, but I wanted to spread it out some so it would be
-		//easier to read
+		
 		double altExpo = (((opperand / testExpo) + testExpo) / 2);
 		while( testExpo - altExpo > .005 || altExpo - testExpo > .005) {
 			testExpo = altExpo;
@@ -260,18 +258,22 @@ public class Calculate {
 	//takes coefficients of a quadratic equation (standard form) and returns the real roots
 	//accepts 3 integers, returns a String
 	public static String quadForm(int opperandA, int opperandB, int opperandC) {
-		double opperandZ = (-opperandB + sqrt(exponent(opperandB, 2)-(4 * opperandA * opperandC))) / (2* opperandA);
-		double opperandY = (-opperandB - sqrt(exponent(opperandB, 2)-(4 * opperandA * opperandC))) / (2* opperandA);
-		opperandZ = round2(opperandZ);
-		opperandY = round2(opperandY);
-		String solutionA = opperandZ + "";
-		String solutionB = opperandY + "";
+		//variable names are out of order b/c created out of order
+		double opperandX = exponent(opperandB, 2)-(4 * opperandA * opperandC);
+		if(opperandX < 0) {
+			return("no real roots");
+		}
+		double opperandZ = round2(-opperandB + sqrt(opperandX)) / (2* opperandA);
+		double opperandY = round2(-opperandB - sqrt(opperandX)) / (2* opperandA);
+
 		if(opperandZ == opperandY) {
-			return(solutionA);
+			return(opperandZ + "");
 		}else if(min(opperandY, opperandZ) == opperandY){
-			return(solutionB + " and " + solutionA);
+			return(opperandY + " and " + opperandZ);
+		}else if(min(opperandY, opperandZ) == opperandZ){
+			return(opperandZ + " and " + opperandY);
 		}else {
-			return(solutionA + " and " + solutionB);
+			return("0.0");
 		}
 	}
 }
