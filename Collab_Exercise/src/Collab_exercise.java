@@ -7,8 +7,7 @@ public class Collab_exercise {
 	public static void main(String[] args) {
 		int sum = 0;
 		int largestEvenInt = 0;
-		//this was the best way I could come up with on short notice to make sure I could get an
-		//even number through properly
+		//does not currently run the largestEvenInt properly
 		boolean even_Check = true;
 		boolean done = false;
 		Scanner input = new Scanner(System.in);
@@ -31,12 +30,12 @@ public class Collab_exercise {
 				sum += userNum;
 				if(userNum > largestEvenInt){
 					largestEvenInt = userNum;
-				}else if(even_Check){
-					largestEvenInt = userNum;
-					even_Check = false;
-				}
+				}//else if(even_Check){
+					//largestEvenInt = userNum;
+					//even_Check = false;
+				//}
 			}
-			System.out.println("Done yet? ");
+			System.out.println("Done yet? Answer [Yes] or [No]");
 			String finished = input.next();
 			if(finished.equals("yes")){
 				done = true;
