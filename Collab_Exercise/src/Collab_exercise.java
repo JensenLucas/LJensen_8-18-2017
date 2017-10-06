@@ -2,6 +2,7 @@
 //Programmer 1: Lucas Jensen
 //Programmer 2: Mandy Woo
 //Takes input numbers and returns the smallest, largest, sum of all evens, and largest even
+//Currently does not properly return largest even, so that has been disabled
 import java.util.*;
 public class Collab_exercise {
 	public static void main(String[] args) {
@@ -45,7 +46,7 @@ public class Collab_exercise {
 		System.out.println("Largest number: " + largestInt);
 		System.out.println("Sum of even numbers: " + sum);
 		if(!even_Check) {
-			System.out.println("Largest even number: " + largestEvenInt);
+			//System.out.println("Largest even number: " + largestEvenInt);
 		}
 	}
 }
