@@ -4,6 +4,8 @@
  */
 public class Quadratic {
 	public static String quadrDescriber(double opperandA, double opperandB, double opperandC) {
+		
+		
 		return(null);
 	}
 }
