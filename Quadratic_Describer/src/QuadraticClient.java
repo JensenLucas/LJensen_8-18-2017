@@ -4,6 +4,8 @@
  * handles user input and interface
  */
 import java.util.*;
+
+//NOT COMPLETE
 public class QuadraticClient {
 	public static void main(String[] args){
 		Scanner userInput = new Scanner(System.in);
