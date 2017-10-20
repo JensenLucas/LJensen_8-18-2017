@@ -5,118 +5,117 @@
 
 //still almost entirely incomplete, I just wanted to turn something in (one day late)
 public class Quadratic {
-	public static void quadrDescriber(double opperandA, double opperandB, double opperandC) {
-		System.out.println("\nDescription of the graph of:\ny = " + opperandA + " x^2 + " + opperandB + " x + " + opperandC + "\n");
-		if(opperandA >= 0) {
+	public static void quadrDescriber(double operandA, double operandB, double operandC) {
+		System.out.println("\nDescription of the graph of:\ny = " + operandA + " x^2 + " + operandB + " x + " + operandC + "\n");
+		if(operandA >= 0) {
 			//in the example code, if A = 0, it says "Opens: Up"
 			System.out.println("Opens: Up");
-		}else if(opperandA < 0) {
+		}else if(operandA < 0) {
 			System.out.println("Opens: Down");
 		}
-		double axis = (-opperandB/(2* opperandA));
+		double axis = (-operandB/(2* operandA));
+		//This turns -0.0 into 0.0
+		axis += 0.0;
 		System.out.println("Axis of Symmetry: " + axis);
-		double vertexY = ((4 * opperandA * opperandC - (opperandB * opperandB)) / (4*opperandA)) ;
+		double vertexY = ((4 * operandA * operandC - (operandB * operandB)) / (4*operandA)) ;
 		System.out.println("Vertex: (" + axis + ", " + vertexY + ")");
-		if((opperandA > 0 && opperandC > 0 ) || (opperandA < 0 && opperandC < 0)) {
+		if((operandA > 0 && operandC > 0 ) || (operandA < 0 && operandC < 0)) {
 			System.out.println("x-intercept(s): none");
 		}else if(vertexY == 0) {
 			System.out.println("x - intercept(s): " + axis);
 		}else {
-			System.out.println(quadForm(opperandA, opperandB, opperandC));
+			System.out.println(quadForm(operandA, operandB, operandC));
 		}
-		System.out.println("y-intercept: " + opperandC);
+		System.out.println("y-intercept: " + operandC);
 	}
 	//takes coefficients of a quadratic equation (standard form) and returns the real roots
 	//accepts 3 integers, returns a String
-	public static String quadForm(double opperandA, double opperandB, double opperandC) {
+	public static String quadForm(double operandA, double operandB, double operandC) {
 		//variable names are out of order b/c created out of order
-		double opperandX = exponent(opperandB, 2)-(4 * opperandA * opperandC);
-		if(opperandX < 0) {
+		double operandX = exponent(operandB, 2)-(4 * operandA * operandC);
+		if(operandX < 0) {
 			return("no real roots");
 		}
-		double opperandZ = round2(-opperandB + sqrt(opperandX)) / (2* opperandA);
-		double opperandY = round2(-opperandB - sqrt(opperandX)) / (2* opperandA);
+		double operandZ = round2(-operandB + sqrt(operandX)) / (2* operandA);
+		double operandY = round2(-operandB - sqrt(operandX)) / (2* operandA);
 
-		if(opperandZ == opperandY) {
-			return(opperandZ + "");
-		}else if(min(opperandY, opperandZ) == opperandY){
-			return(opperandY + " and " + opperandZ);
-		}else if(min(opperandY, opperandZ) == opperandZ){
-			return(opperandZ + " and " + opperandY);
+		if(operandZ == operandY) {
+			return(operandZ + "");
+		}else if(min(operandY, operandZ) == operandY){
+			return(operandY + " and " + operandZ);
+		}else if(min(operandY, operandZ) == operandZ){
+			return(operandZ + " and " + operandY);
 		}else {
 			return("0.0");
 		}
 	}
 	//approximates the square root of a given double
-	public static double sqrt(double opperand){
-		if(opperand < 0) {
+	public static double sqrt(double operand){
+		if(operand < 0) {
 			throw new IllegalArgumentException("Negative input is invalid");
 		}
 			
 		//I don't know the best place to start, so I just picked something that's between
-		//the opperand and 0
-		double testExpo = opperand / 4;
+		//the operand and 0
+		double testExpo = operand / 4;
 		
-		double altExpo = (((opperand / testExpo) + testExpo) / 2);
+		double altExpo = (((operand / testExpo) + testExpo) / 2);
 		while( testExpo - altExpo > .005 || altExpo - testExpo > .005) {
 			testExpo = altExpo;
-			altExpo = (((opperand / testExpo) + testExpo) / 2);
+			altExpo = (((operand / testExpo) + testExpo) / 2);
 		}
 		return(round2(altExpo));
 	}
-	//returns opperandA^opperandB
-	public static double exponent (double opperandA, int opperandB) {
-		double opperandZ = opperandA;
-		if(opperandB > 0) {
-			for(int i=1; i < opperandB; i++) {
-				opperandZ *= opperandA;
+	//returns operandA^operandB
+	public static double exponent (double operandA, int operandB) {
+		double operandZ = operandA;
+		if(operandB > 0) {
+			for(int i=1; i < operandB; i++) {
+				operandZ *= operandA;
 			}
-		}else if(opperandB == 0) {
-			opperandZ = 1;
-		}else if(opperandB < 0){
-			for(int i=-1; i < absValue(opperandB); i++) {
-				opperandZ /= opperandA;
+		}else if(operandB == 0) {
+			operandZ = 1;
+		}else if(operandB < 0){
+			for(int i=-1; i < absValue(operandB); i++) {
+				operandZ /= operandA;
 			}
 		}
-		return opperandZ;
+		return operandZ;
 	}
-	public static double round2(double opperand) {
-		double opperandZ = opperand * 100;
-		opperandZ -= (opperandZ % 1);
-		opperandZ /= 100;
+	public static double round2(double operand) {
+		double operandZ = operand * 100;
+		operandZ -= (operandZ % 1);
+		operandZ /= 100;
 		
-		double opperandY = opperand * 1000;
-		opperandY -= (opperandY % 1);
-		opperandY /= 1000;
+		double operandY = operand * 1000;
+		operandY -= (operandY % 1);
+		operandY /= 1000;
 		
-		if(opperandY - opperandZ >= .005 && opperandZ > 0) {
-			opperandZ += .01;
-		}else if(opperandY - opperandZ <= -.005 && opperandZ < 0) {
-			opperandZ -= .01;
+		if(operandY - operandZ >= .005 && operandZ > 0) {
+			operandZ += .01;
+		}else if(operandY - operandZ <= -.005 && operandZ < 0) {
+			operandZ -= .01;
 		}
-		return (opperandZ);
+		return (operandZ);
 	}
-	public static double min(double opperandA, double opperandB){
-		if (opperandA <= opperandB) {
-			return(opperandA);
+	public static double min(double operandA, double operandB){
+		if (operandA <= operandB) {
+			return(operandA);
 		}else {
-			return(opperandB);
+			return(operandB);
 		}
 	}
-	public static double absValue(double opperand) {
-		if(opperand < 0) {
-			opperand = opperand - (2*opperand);
+	public static double absValue(double operand) {
+		if(operand < 0) {
+			operand = operand - (2*operand);
 		}
-		return (opperand);
+		return (operand);
 	}
-	
 	//alternate version of absValue for integers 
-	public static int absValue(int opperand) {
-		if(opperand < 0) {
-			opperand = opperand - (2*opperand);
+	public static int absValue(int operand) {
+		if(operand < 0) {
+			operand = operand - (2*operand);
 		}
-		return (opperand);
+		return (operand);
 	}
-	
-	
 }
