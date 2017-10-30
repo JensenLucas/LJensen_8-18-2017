@@ -17,9 +17,10 @@ public class Split {
 		*/
 		
 		//Part 2
-		/*System.out.println(filling("breadcheesepotatobreadcakebread"));
+		System.out.println(filling("breadcheesepotatobreadcakebread"));
+		System.out.println(filling("breadbreadtomatobread"));
 		System.out.println(filling("applespineapplesbreadlettustomatobaconmayohambreadcheese"));
-		System.out.println(filling("checkbreadtestbreadpiebreadthirdbreadcheck"));*/
+		System.out.println(filling("checkbreadtestbreadpiebreadthirdbreadcheck"));
 		
 		//part 3
 		System.out.println(fillingAlt("apples pineapples bread lettus tomato bacon mayo ham bread cheese"));
