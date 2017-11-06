@@ -1,6 +1,9 @@
 /*Lucas Jensen
 * 11/1/2017
 * arrays lab 3
+* 
+* Embarrassingly, I was actually already done with this before I became sick, 
+* but I never turned it in.
 */
 
 import java.util.*;
