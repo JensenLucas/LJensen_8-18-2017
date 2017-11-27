@@ -10,9 +10,18 @@ import java.util.*;
 public class FracCalc {
     public static void main(String[] args) {
     	Scanner userInput = new Scanner(System.in);
-		System.out.println("Please provide input");
-		String frac = userInput.nextLine();
-		System.out.println(produceAnswer(frac));
+		boolean check = true;
+		System.out.println("Please provide input in the form of two numbers (whole, fraction, or mixed) separated by an operation.");
+		do {
+    		String input = userInput.nextLine();
+    		if(input.equalsIgnoreCase("QUIT")) {
+    			break;
+    		}else{
+    			System.out.println(produceAnswer(input));
+    		}
+    		System.out.println("Please provide next input or type QUIT to exit the program.");
+		}while(check);
+		System.out.println("Done");
     }
     /*
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -32,6 +41,5 @@ public class FracCalc {
 		return(beta);
     }
 
-    // TODO: Fill in the space below with any helper methods that you think you will need
 
 }
