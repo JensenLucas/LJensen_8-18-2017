@@ -38,6 +38,7 @@ public class FracCalc {
 		String alpha = operandB[0];
 		String operator = operandB[1];
 		String beta = operandB[2];
+		String[] betaAlt = beta.split("/");
 		return(beta);
     }
 
