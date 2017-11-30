@@ -4,6 +4,9 @@ public class DrumKit {
 		System.out.println("bang bang ba-bang");
 	}
 	void playTopHat() {
-		System.out.println(x);
+		System.out.println("ding ding da-ding");
 	}
+	boolean topHat = true;
+	boolean snare = true;
 }
+
