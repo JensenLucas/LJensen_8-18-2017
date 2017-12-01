@@ -6,6 +6,7 @@
 package fracCalc;
 
 import java.util.*;
+//import java.lang.*;
 
 public class FracCalc {
     public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class FracCalc {
     		}
     		System.out.println("Please provide next input or type QUIT to exit the program.");
 		}while(check);
-		System.out.println("Done");
+		System.out.println("Program ended");
     }
     /*
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -38,8 +39,49 @@ public class FracCalc {
 		String alpha = operandB[0];
 		String operator = operandB[1];
 		String beta = operandB[2];
-		String[] betaAlt = beta.split("/");
-		return(beta);
+		int alphaWhole = 0;
+		int alphaNum = 0;
+		int alphaDenom = 0;
+		if(!alpha.contains("/")) {
+			//whole number only
+			alphaWhole = Integer.parseInt(alpha);
+		}else if(!alpha.contains("_")) {
+			//fraction only
+			String[] divided = alpha.split("/");
+			alphaNum = Integer.parseInt(divided[0]);
+			alphaDenom = Integer.parseInt(divided[1]);
+		}else {
+			//mixed number
+			String[] divided = alpha.split("_");
+			alphaWhole = Integer.parseInt(divided[0]);
+			String temp = divided[1];
+			String[] dividedB = temp.split("/");
+			alphaNum = Integer.parseInt(dividedB[0]);
+			alphaDenom = Integer.parseInt(dividedB[1]);
+		}
+		String alphaString = ("whole:" + (alphaWhole) + " numerator:" + (alphaNum) + " denominator:" + (alphaDenom));
+		int betaWhole = 0;
+		int betaNum = 0;
+		int betaDenom = 0;
+		if(!beta.contains("/")) {
+			//whole number only
+			betaWhole = Integer.parseInt(beta);
+		}else if(!beta.contains("_")) {
+			//fraction only
+			String[] divided = beta.split("/");
+			betaNum = Integer.parseInt(divided[0]);
+			betaDenom = Integer.parseInt(divided[1]);
+		}else {
+			//mixed number
+			String[] divided = beta.split("_");
+			betaWhole = Integer.parseInt(divided[0]);
+			String temp = divided[1];
+			String[] dividedB = temp.split("/");
+			betaNum = Integer.parseInt(dividedB[0]);
+			betaDenom = Integer.parseInt(dividedB[1]);
+		}
+		String betaString = ("whole:" + (betaWhole) + " numerator:" + (betaNum) + " denominator:" + (betaDenom));
+		return(betaString);
     }
 
 
