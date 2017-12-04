@@ -59,10 +59,10 @@ public class FracCalc {
 			alphaNum = Integer.parseInt(dividedB[0]);
 			alphaDenom = Integer.parseInt(dividedB[1]);
 		}
-		String alphaString = ("whole:" + (alphaWhole) + " numerator:" + (alphaNum) + " denominator:" + (alphaDenom));
+		//String alphaString = ("whole:" + (alphaWhole) + " numerator:" + (alphaNum) + " denominator:" + (alphaDenom));
 		int betaWhole = 0;
 		int betaNum = 0;
-		int betaDenom = 0;
+		int betaDenom = 1;
 		if(!beta.contains("/")) {
 			//whole number only
 			betaWhole = Integer.parseInt(beta);
@@ -80,9 +80,18 @@ public class FracCalc {
 			betaNum = Integer.parseInt(dividedB[0]);
 			betaDenom = Integer.parseInt(dividedB[1]);
 		}
-		String betaString = ("whole:" + (betaWhole) + " numerator:" + (betaNum) + " denominator:" + (betaDenom));
-		return(betaString);
+		
+		if(operator.equals("+")) {
+			
+		}
+		//Output used for checkpoint 2
+		//String betaString = ("whole:" + (betaWhole) + " numerator:" + (betaNum) + " denominator:" + (betaDenom));
+		
+		
+		return(answer);
     }
 
-
+    public static String add() {
+    	return(null);
+    }
 }
