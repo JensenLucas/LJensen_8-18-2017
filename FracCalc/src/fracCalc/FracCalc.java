@@ -41,7 +41,7 @@ public class FracCalc {
 		String beta = operandB[2];
 		int alphaWhole = 0;
 		int alphaNum = 0;
-		int alphaDenom = 0;
+		int alphaDen = 0;
 		if(!alpha.contains("/")) {
 			//whole number only
 			alphaWhole = Integer.parseInt(alpha);
@@ -49,7 +49,7 @@ public class FracCalc {
 			//fraction only
 			String[] divided = alpha.split("/");
 			alphaNum = Integer.parseInt(divided[0]);
-			alphaDenom = Integer.parseInt(divided[1]);
+			alphaDen = Integer.parseInt(divided[1]);
 		}else {
 			//mixed number
 			String[] divided = alpha.split("_");
@@ -57,12 +57,12 @@ public class FracCalc {
 			String temp = divided[1];
 			String[] dividedB = temp.split("/");
 			alphaNum = Integer.parseInt(dividedB[0]);
-			alphaDenom = Integer.parseInt(dividedB[1]);
+			alphaDen = Integer.parseInt(dividedB[1]);
 		}
-		//String alphaString = ("whole:" + (alphaWhole) + " numerator:" + (alphaNum) + " denominator:" + (alphaDenom));
+		//String alphaString = ("whole:" + (alphaWhole) + " numerator:" + (alphaNum) + " denominator:" + (alphaDen));
 		int betaWhole = 0;
 		int betaNum = 0;
-		int betaDenom = 1;
+		int betaDen = 1;
 		if(!beta.contains("/")) {
 			//whole number only
 			betaWhole = Integer.parseInt(beta);
@@ -70,7 +70,7 @@ public class FracCalc {
 			//fraction only
 			String[] divided = beta.split("/");
 			betaNum = Integer.parseInt(divided[0]);
-			betaDenom = Integer.parseInt(divided[1]);
+			betaDen = Integer.parseInt(divided[1]);
 		}else {
 			//mixed number
 			String[] divided = beta.split("_");
@@ -78,20 +78,40 @@ public class FracCalc {
 			String temp = divided[1];
 			String[] dividedB = temp.split("/");
 			betaNum = Integer.parseInt(dividedB[0]);
-			betaDenom = Integer.parseInt(dividedB[1]);
+			betaDen = Integer.parseInt(dividedB[1]);
 		}
 		
-		if(operator.equals("+")) {
+		if(operator.equals("+") || operator.equals("-")) {
+			add(alphaWhole, betaWhole, alphaNum, betaNum, alphaDen, betaDen, operator);
+		}else if(operator.equals("-")) {
 			
 		}
 		//Output used for checkpoint 2
-		//String betaString = ("whole:" + (betaWhole) + " numerator:" + (betaNum) + " denominator:" + (betaDenom));
+		//String betaString = ("whole:" + (betaWhole) + " numerator:" + (betaNum) + " denominator:" + (betaDen));
+		//return(betaString);
 		
-		
-		return(answer);
+		//return(answer);
     }
 
-    public static String add() {
+    public static String add(int alphaWhole, int betaWhole, int alphaNum, int betaNum, int alphaDen, int betaDen, String operator) {
+    	int commonDen = alphaDen * betaDen;
+    	int alphaNum2 = alphaNum * betaDen;
+    	int betaNum2 = betaNum * alphaDen;
+    	int whole;
+    	int num;
+    	if(operator.equals("+")) {
+    		whole = alphaWhole + betaWhole;
+    		num = alphaNum2 + betaNum2;
+    	}else if(operator.equals("-")) {
+    		whole = alphaWhole - betaWhole;
+    		num = alphaNum2 + betaNum2;
+    	}
+    	simplify(num, commonDen);
+    	return(null);
+    }
+    
+    public static String simplify(int num, int den) {
+    	if(num)
     	return(null);
     }
 }
