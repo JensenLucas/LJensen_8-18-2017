@@ -10,8 +10,7 @@
  */
 
 
-public abstract class Prism  
-{
+public abstract class Prism  {
 	private double height;
 	
 	public Prism (double height) {
