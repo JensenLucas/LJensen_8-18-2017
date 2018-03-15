@@ -4,12 +4,21 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
-
+	public Spreadsheet() {
+		Cell[][] spread = new Cell[getRows()][getCols()];
+		for(Cell[] i : spread) {
+			for(Cell j: spread[i]) {
+				spread[i][j] = new EmptyCell;
+			}
+		}
+	}
+	
+	
 	@Override
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
-		return "";
+		return null;
 	}
 
 	@Override
