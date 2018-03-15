@@ -1,6 +1,6 @@
 package textExcel;
 
-public class EmptyCell extends Cell{
+public class EmptyCell implements Cell{
 	public EmptyCell() {
 		
 	}

@@ -7,8 +7,8 @@ public class Spreadsheet implements Grid
 	public Spreadsheet() {
 		Cell[][] spread = new Cell[getRows()][getCols()];
 		for(Cell[] i : spread) {
-			for(Cell j: spread[i]) {
-				spread[i][j] = new EmptyCell;
+			for(Cell j: i) {
+				j = new EmptyCell();
 			}
 		}
 	}
