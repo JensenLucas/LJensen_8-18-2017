@@ -4,8 +4,8 @@ package textExcel;
 
 public class SpreadsheetLocation implements Location
 {
-	int rowLoc; //Row location
-	int colLoc; //Column location
+	int rowLoc; //Row location: number
+	int colLoc; //Column location: letter
     @Override
     public int getRow()
     {
@@ -17,13 +17,15 @@ public class SpreadsheetLocation implements Location
     public int getCol()
     {
         // TODO Auto-generated method stub
-        return 0;
+        return colLoc;
     }
     
     public SpreadsheetLocation(String cellName)
     {
-        rowLoc = ((""+cellName.charAt(0)).toLowerCase()).charAt(0)-65;
-        
+        String x = "" + cellName.charAt(0);
+    	colLoc = (x.toLowerCase()).charAt(0)-97;
+        String[] placeholder = cellName.split(x);
+        rowLoc = Integer.parseInt(placeholder[1]);
     }
 
 }
