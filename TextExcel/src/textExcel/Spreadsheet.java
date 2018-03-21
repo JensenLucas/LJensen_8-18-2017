@@ -4,8 +4,8 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
+	Cell[][] spread = new Cell[getRows()][getCols()];
 	public Spreadsheet() {
-		Cell[][] spread = new Cell[getRows()][getCols()];
 		for(Cell[] i : spread) {
 			for(Cell j: i) {
 				j = new EmptyCell();
@@ -38,15 +38,22 @@ public class Spreadsheet implements Grid
 	@Override
 	public Cell getCell(Location loc)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return spread[loc.getRow()][loc.getCol()];
 	}
 
 	@Override
 	public String getGridText()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		String f = "         |";//filler
+		String header = ("   |A"+f+"B"+f+"C"+f+"D"+f+"E"+f+"F"+f+"G"+f+"H"+f+"I"+f+"J"+f+"K"+"L"+f);
+		String body = "";
+		for(Cell[] i : spread) {
+			body += ("\n" + i + "  |");
+			for(Cell j: i) {
+				body += j.abbreviatedCellText() + "|";
+			}
+		}
+		return header + body;
 	}
 
 }
