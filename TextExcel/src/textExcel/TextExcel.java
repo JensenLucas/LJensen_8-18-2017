@@ -9,7 +9,7 @@ public class TextExcel
 
 	public static void main(String[] args)
 	{
-		Scanner userInput = new Scanner(System.in);
+		/*Scanner userInput = new Scanner(System.in);
 	    boolean check = true;
 		while(check) {
 	    	System.out.println("Would you like to quit?");
@@ -18,6 +18,6 @@ public class TextExcel
 	    		check = false;
 	    		System.out.println("Program ended");
 	    	}
-	    }
+	    }*/
 	}
 }

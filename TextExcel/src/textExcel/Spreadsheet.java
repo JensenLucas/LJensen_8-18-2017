@@ -17,7 +17,13 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-		// TODO Auto-generated method stub
+		if(command.contains("=")) {
+			//<cell> = <value>
+			String[] pieces = command.split(command, 2);
+			SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
+			spread[loc.getRow()][loc.getCol()] = pieces[1];
+		}
+		
 		return "";
 	}
 
