@@ -19,14 +19,43 @@ public class Spreadsheet implements Grid
 	{
 		if(command.contains("=")) {
 			//<cell> = <value>
+			//ONLY WORKS FOR TEXTCELL
+			//TODO add functionality for other cell types
 			String[] pieces = command.split(command, 2);
 			SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
-			spread[loc.getRow()][loc.getCol()] = pieces[1];
+			spread[loc.getRow()][loc.getCol()] = becomeTextCell(pieces[1]);
+			return(getGridText());
+		}else if(command.equalsIgnoreCase("Clear")) {
+			//clear the spreadsheet
+			for(Cell[] i : spread) {
+				for(Cell j: i) {
+					j = new EmptyCell();
+				}
+			}
+			return(getGridText());
+		}else if(command.contains("clear")) {
+			//because this comes after checking for clear, only a command like "Clear A1" will apply (assuming the user knows how to use the application)
+			//TODO: maybe add more conditions later?
+			//clear an individual cell
+			String[] pieces = command.split(command, 2);
+			SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
+			spread[loc.getRow()][loc.getCol()] = new EmptyCell();
+			return(getGridText());
+		}else {
+			//theoretically, there is only one command left that could be input
+			//TODO: add safety net for stupid inputs
+			//returns the value of the given cell
+			SpreadsheetLocation loc = new SpreadsheetLocation(command);
+			return(spread[loc.getRow()][loc.getCol()].fullCellText());
 		}
-		
-		return "";
 	}
-
+	
+	public TextCell becomeTextCell(String input) {
+		TextCell cat = new TextCell();
+		cat.changeValue(input);
+		return cat;
+	}
+	
 	@Override
 	public int getRows()
 	{

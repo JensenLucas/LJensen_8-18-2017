@@ -2,6 +2,9 @@ package textExcel;
 
 public class TextCell implements Cell{
 	private String text;
+	public void changeValue(String text) {
+		this.text = text;
+	}
 	public String abbreviatedCellText() {// text for spreadsheet cell display, must be exactly length 10
 		if(text.length() > 10) {
 			String abbText = "";// abbreviated text
