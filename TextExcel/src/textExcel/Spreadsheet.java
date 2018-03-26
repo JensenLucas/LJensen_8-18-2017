@@ -21,7 +21,7 @@ public class Spreadsheet implements Grid
 			//<cell> = <value>
 			//ONLY WORKS FOR TEXTCELL
 			//TODO add functionality for other cell types
-			String[] pieces = command.split(command, 2);
+			String[] pieces = command.split(" = ", 2);
 			SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
 			spread[loc.getRow()][loc.getCol()] = becomeTextCell(pieces[1]);
 			return(getGridText());
@@ -41,12 +41,14 @@ public class Spreadsheet implements Grid
 			SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
 			spread[loc.getRow()][loc.getCol()] = new EmptyCell();
 			return(getGridText());
-		}else {
+		}else if(isCell(command)){
 			//theoretically, there is only one command left that could be input
-			//TODO: add safety net for stupid inputs
 			//returns the value of the given cell
 			SpreadsheetLocation loc = new SpreadsheetLocation(command);
 			return(spread[loc.getRow()][loc.getCol()].fullCellText());
+		}else {
+			//temporary safety net
+			return "";
 		}
 	}
 	
@@ -89,6 +91,19 @@ public class Spreadsheet implements Grid
 			}
 		}
 		return header + body;
+	}
+	
+	public boolean isCell(String cell) {
+		//checks if a passed String qualifies as a cell
+		if(cell.length()>4) {
+			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
+			if(loc.getRow() > 19 || loc.getRow() < 0 || loc.getCol() > 11 || loc.getCol() < 0) {
+				return false;
+			}else {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
