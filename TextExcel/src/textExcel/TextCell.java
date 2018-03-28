@@ -2,6 +2,9 @@ package textExcel;
 
 public class TextCell implements Cell{
 	private String text;
+	public TextCell() {
+		
+	}
 	public void changeValue(String text) {
 		this.text = text;
 	}

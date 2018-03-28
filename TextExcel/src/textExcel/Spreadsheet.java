@@ -82,10 +82,17 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		String f = "         |";//filler
-		String header = ("   |A"+f+"B"+f+"C"+f+"D"+f+"E"+f+"F"+f+"G"+f+"H"+f+"I"+f+"J"+f+"K"+"L"+f);
+		String header = ("   |A"+f+"B"+f+"C"+f+"D"+f+"E"+f+"F"+f+"G"+f+"H"+f+"I"+f+"J"+f+"K"+f+"L"+f);
 		String body = "";
+		int k =1; //Because I apparently wanted both a for loop and a for-each loop
 		for(Cell[] i : spread) {
-			body += ("\n" + i + "  |");
+			if(k<10) {
+				body += ("\n" + k + "  |");
+			}else {
+				body += ("\n" + k + " |");
+			}
+			
+			k++;
 			for(Cell j: i) {
 				body += j.abbreviatedCellText() + "|";
 			}
@@ -94,7 +101,7 @@ public class Spreadsheet implements Grid
 	}
 	
 	public boolean isCell(String cell) {
-		//checks if a passed String qualifies as a cell
+		//checks if a passed String is a cell location (B7 == true, Z21 == false, cat == false)
 		if(cell.length()>4) {
 			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
 			if(loc.getRow() > 19 || loc.getRow() < 0 || loc.getCol() > 11 || loc.getCol() < 0) {
