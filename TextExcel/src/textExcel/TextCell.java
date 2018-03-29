@@ -4,6 +4,10 @@ public class TextCell implements Cell{
 	private String text;
 	public TextCell() {
 		
+		
+	}
+	public TextCell(String text) {
+		this.text = text;
 	}
 	public void changeValue(String text) {
 		this.text = text;

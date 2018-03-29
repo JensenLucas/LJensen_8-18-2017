@@ -11,8 +11,8 @@ public class TextExcel
 	{
 		Spreadsheet cat = new Spreadsheet();
 		System.out.println(cat.getGridText());
-		TestsALL.Helper th = new TestsALL.Helper();
-		System.out.println(th.getText());
+		//TestsALL.Helper th = new TestsALL.Helper();
+		//System.out.println(th.getText());
 		/*Scanner userInput = new Scanner(System.in);
 	    boolean check = true;
 		while(check) {

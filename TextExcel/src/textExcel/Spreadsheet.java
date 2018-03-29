@@ -84,17 +84,18 @@ public class Spreadsheet implements Grid
 		String f = "         |";//filler
 		String header = ("   |A"+f+"B"+f+"C"+f+"D"+f+"E"+f+"F"+f+"G"+f+"H"+f+"I"+f+"J"+f+"K"+f+"L"+f);
 		String body = "";
-		int k =1; //Because I apparently wanted both a for loop and a for-each loop
-		for(Cell[] i : spread) {
-			if(k<10) {
-				body += ("\n" + k + "  |");
+		for(int i = 0; i < spread.length; i++) {
+			if(i<9) {
+				body += ("\n" + (i+1) + "  |");
 			}else {
-				body += ("\n" + k + " |");
+				body += ("\n" + (i+1) + " |");
 			}
 			
-			k++;
-			for(Cell j: i) {
-				body += j.abbreviatedCellText() + "|";
+			for(int j=0; j < spread[i].length; j++) {
+				//body += ("Meow      |");
+				//TODO: get this to work the right way
+				body += spread[i][j].abbreviatedCellText();
+				
 			}
 		}
 		return header + body;
