@@ -93,9 +93,7 @@ public class Spreadsheet implements Grid
 			
 			for(int j=0; j < spread[i].length; j++) {
 				//body += ("Meow      |");
-				//TODO: get this to work the right way
-				body += spread[i][j].abbreviatedCellText();
-				
+				body += spread[i][j].abbreviatedCellText() + "|";
 			}
 		}
 		return header + body;
