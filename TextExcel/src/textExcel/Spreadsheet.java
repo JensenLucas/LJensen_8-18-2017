@@ -6,9 +6,9 @@ public class Spreadsheet implements Grid
 {
 	Cell[][] spread = new Cell[getRows()][getCols()];
 	public Spreadsheet() {
-		for(Cell[] i : spread) {
-			for(Cell j: i) {
-				j = new EmptyCell();
+		for(int i = 0; i<getRows(); i++){
+			for(int j = 0; j<getCols(); j++){
+				Cell[i][j] = new EmptyCell();
 			}
 		}
 	}
