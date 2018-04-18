@@ -16,7 +16,7 @@ public class TextCell implements Cell{
 		if(text.length() > 10) {
 			String abbText = "";// abbreviated text
 			//String [] textArr = text.split(text.charAt(10)+"");
-			for(int i = 0; i<10; i++) {
+			for(int i = 1; i<11; i++) {
 				abbText += text.charAt(i);
 			}
 			return abbText;
@@ -29,6 +29,6 @@ public class TextCell implements Cell{
 		}
 	}
 	public String fullCellText() {// text for individual cell inspection, not truncated or padded
-		return ("\"") + text + ("\"");
+		return text;
 	}
 }

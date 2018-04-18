@@ -8,7 +8,7 @@ public class Spreadsheet implements Grid
 	public Spreadsheet() {
 		for(int i = 0; i<getRows(); i++){
 			for(int j = 0; j<getCols(); j++){
-				Cell[i][j] = new EmptyCell();
+				spread[i][j] = new EmptyCell();
 			}
 		}
 	}
@@ -27,9 +27,9 @@ public class Spreadsheet implements Grid
 			return(getGridText());
 		}else if(command.equalsIgnoreCase("Clear")) {
 			//clear the spreadsheet
-			for(Cell[] i : spread) {
-				for(Cell j: i) {
-					j = new EmptyCell();
+			for(int i = 0; i<getRows(); i++){
+				for(int j = 0; j<getCols(); j++){
+					spread[i][j] = new EmptyCell();
 				}
 			}
 			return(getGridText());
@@ -41,14 +41,15 @@ public class Spreadsheet implements Grid
 			SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
 			spread[loc.getRow()][loc.getCol()] = new EmptyCell();
 			return(getGridText());
-		}else if(isCell(command)){
-			//theoretically, there is only one command left that could be input
+		}else if(command.length()<4){
+			//Assuming there's no user error, any command less than length 4 should be a cell
+			//i.e. "A1", "I12"
 			//returns the value of the given cell
 			SpreadsheetLocation loc = new SpreadsheetLocation(command);
 			return(spread[loc.getRow()][loc.getCol()].fullCellText());
 		}else {
 			//temporary safety net
-			return "";
+			return "ERROR: "+ command + " is an invalid command";
 		}
 	}
 	

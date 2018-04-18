@@ -12,14 +12,20 @@ public class TextExcel
 		Spreadsheet cat = new Spreadsheet();
 		System.out.println(cat.getGridText());
 		
-		//Manually copied code
-		/*
-		System.out.println(cat.processCommand("A1 = meow"));
+		
+		//Test code
+		
+		String greeting = "ThisIsALongString";
+        cat.processCommand("A1 = \"" + greeting + "\"");
+        System.out.println(cat.getGridText());
+        System.out.println(cat.processCommand("A1"));
+        System.out.println(cat.processCommand("Clear A1"));
+		/* System.out.println(cat.processCommand("A1 = meow"));
 		System.out.println(cat.processCommand("Clear"));
 		cat.processCommand("A1 = meow");
 		System.out.println(cat.processCommand("A2 = meow"));
-		System.out.println(cat.processCommand(""));
-		*/
+		System.out.println(cat.processCommand("Clear"));*/
+		
 		
 		
 		//TestsALL.Helper th = new TestsALL.Helper();
