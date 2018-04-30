@@ -17,28 +17,37 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
+		String[] commandCut = command.split(" ", 3);
 		if(command.contains("=")) {
 			//<cell> = <value>
 			//ONLY WORKS FOR TEXTCELL
 			//TODO add functionality for other cell types
 			String[] pieces = command.split(" = ", 2);
-			SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
-			spread[loc.getRow()][loc.getCol()] = becomeTextCell(pieces[1]);
-			return(getGridText());
+
+			if(pieces[1].contains("\"")) {
+				SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
+				spread[loc.getRow()][loc.getCol()] = new TextCell(pieces[1]);
+				return(getGridText());
+			}else if(pieces[1].contains(".")){
+				SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
+				double value = Double.parseDouble(pieces[1]);
+				spread[loc.getRow()][loc.getCol()] = new ValueCell(value);
+			}
+			return "error: invalid input";
 		}else if(command.equalsIgnoreCase("Clear")) {
-			//clear the spreadsheet
+			//CLEAR ALL
 			for(int i = 0; i<getRows(); i++){
 				for(int j = 0; j<getCols(); j++){
 					spread[i][j] = new EmptyCell();
 				}
 			}
 			return(getGridText());
-		}else if(command.contains("clear")) {
-			//because this comes after checking for clear, only a command like "Clear A1" will apply (assuming the user knows how to use the application)
-			//TODO: maybe add more conditions later?
-			//clear an individual cell
-			String[] pieces = command.split(command, 2);
-			SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
+		}else if(commandCut[0].equalsIgnoreCase("Clear")) {
+			//CLEAR CELL
+			
+			//return"meow";
+			//String[] pieces = command.split(command, 2);
+			SpreadsheetLocation loc = new SpreadsheetLocation(commandCut[1]);
 			spread[loc.getRow()][loc.getCol()] = new EmptyCell();
 			return(getGridText());
 		}else if(command.length()<4){
@@ -52,12 +61,7 @@ public class Spreadsheet implements Grid
 			return "ERROR: "+ command + " is an invalid command";
 		}
 	}
-	
-	public TextCell becomeTextCell(String input) {
-		TextCell cat = new TextCell();
-		cat.changeValue(input);
-		return cat;
-	}
+
 	
 	@Override
 	public int getRows()

@@ -14,12 +14,21 @@ public class TextExcel
 		
 		
 		//Test code
-		
-		String greeting = "ThisIsALongString";
-        cat.processCommand("A1 = \"" + greeting + "\"");
-        System.out.println(cat.getGridText());
-        System.out.println(cat.processCommand("A1"));
-        System.out.println(cat.processCommand("Clear A1"));
+		//String neko = "nya";
+		//cat.processCommand("A1 = \"Cat is very nice I like cat\"");
+		//cat.processCommand("A2 = \""+ neko + "\"");
+		cat.processCommand("A1 = \"" + 1234444444.0 + "\"");
+		System.out.println(cat.getGridText());
+		System.out.println(cat.processCommand("A1"));
+		//String greeting = "ThisIsALongString";
+        //cat.processCommand("A1 = \"" + greeting + "\"");
+        //System.out.println(cat.getGridText());
+        //System.out.println(cat.processCommand("A1"));
+        //System.out.println(cat.processCommand("Clear A1"));
+        //cat.processCommand("B1 = \"cats are the best \"");
+        //System.out.println(cat.processCommand("B1"));
+        //System.out.println(cat.getGridText());
+        //System.out.println(cat.processCommand("A1 = ( 1 * 2 / 1 + 3 - 5 )"));
 		/* System.out.println(cat.processCommand("A1 = meow"));
 		System.out.println(cat.processCommand("Clear"));
 		cat.processCommand("A1 = meow");
