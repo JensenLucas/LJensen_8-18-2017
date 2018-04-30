@@ -23,7 +23,7 @@ public class Spreadsheet implements Grid
 			//ONLY WORKS FOR TEXTCELL
 			//TODO add functionality for other cell types
 			String[] pieces = command.split(" = ", 2);
-
+ 
 			if(pieces[1].contains("\"")) {
 				SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
 				spread[loc.getRow()][loc.getCol()] = new TextCell(pieces[1]);

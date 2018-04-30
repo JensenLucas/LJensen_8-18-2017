@@ -10,7 +10,7 @@ public class ValueCell implements Cell{
 	}
 	public void changeValue(double value) {
 		this.value = value;
-	}
+	} 
 	
 	public String abbreviatedCellText() {
 		String returnVal = value + "";

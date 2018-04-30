@@ -12,7 +12,7 @@ public class TextExcel
 		Spreadsheet cat = new Spreadsheet();
 		System.out.println(cat.getGridText());
 		
-		
+		 
 		//Test code
 		//String neko = "nya";
 		//cat.processCommand("A1 = \"Cat is very nice I like cat\"");
