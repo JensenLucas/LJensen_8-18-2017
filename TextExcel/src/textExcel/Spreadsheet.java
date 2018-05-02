@@ -18,21 +18,25 @@ public class Spreadsheet implements Grid
 	public String processCommand(String command)
 	{
 		String[] commandCut = command.split(" ", 3);
+		
+		SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
 		if(command.contains("=")) {
 			//<cell> = <value>
 			//ONLY WORKS FOR TEXTCELL
 			//TODO add functionality for other cell types
 			String[] pieces = command.split(" = ", 2);
- 
 			if(pieces[1].contains("\"")) {
-				SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
 				spread[loc.getRow()][loc.getCol()] = new TextCell(pieces[1]);
 				return(getGridText());
-			}else if(pieces[1].contains(".")){
-				SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
-				double value = Double.parseDouble(pieces[1]);
-				spread[loc.getRow()][loc.getCol()] = new ValueCell(value);
+			}else if(pieces[1].contains("%")){
+				spread[loc.getRow()][loc.getCol()] = new PercentCell(pieces[1]);
+
 			}
+			//else if(pieces[1].contains(".")){
+			//	SpreadsheetLocation loc = new SpreadsheetLocation(pieces[0]);
+			//	double value = Double.parseDouble(pieces[1]);
+			//	spread[loc.getRow()][loc.getCol()] = new ValueCell(value);
+			//}
 			return "error: invalid input";
 		}else if(command.equalsIgnoreCase("Clear")) {
 			//CLEAR ALL
@@ -101,6 +105,7 @@ public class Spreadsheet implements Grid
 				body += spread[i][j].abbreviatedCellText() + "|";
 			}
 		}
+		body += "\n";
 		return header + body;
 	}
 	

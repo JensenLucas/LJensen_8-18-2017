@@ -14,7 +14,8 @@ public class TextCell implements Cell{
 		this.text = text;
 	} 
 	public String abbreviatedCellText() {// text for spreadsheet cell display, must be exactly length 10
-		if(text.length() > 10) {
+		String abbTextA = text.substring(1,text.length()-1);
+		if(abbTextA.length() > 10) {
 			//String abbText = "";// abbreviated text
 			//String [] textArr = text.split(text.charAt(10)+"");
 			//for(int i = 1; i<11; i++) {
