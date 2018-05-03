@@ -7,6 +7,9 @@ public class PercentCell implements Cell{
 	public PercentCell(String value) {
 		this.value = value;
 	}
+	public void changeValue(String value) {
+		this.value = value;
+	}
 	public String abbreviatedCellText() {// text for spreadsheet cell display, must be exactly length 10
 		return "          ";
 	}
